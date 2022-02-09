@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 13:22:51 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/09 14:01:24 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:04:51 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef struct s_img
 {
 	void		*img;
 	void		*addr;
-	int			bits_per_pixel;
-	int			line_size;
+	int			bits_ppx;
+	int			l_size;
 	int			endian;
 	t_vector	size;
 }	t_img;
@@ -70,13 +70,13 @@ typedef struct s_sprites
 
 typedef struct s_game
 {
-	void		*mlx;//
-	void		*win;//
-	int			move_count;//
-	t_vector	p_pos;//
-	t_vector	size;//
-	t_map		map;//
-	t_sprites	sprites;//
+	void		*mlx;
+	void		*win;
+	int			move_count;
+	t_vector	p_pos;
+	t_vector	size;
+	t_map		map;
+	t_sprites	sprites;
 	t_img		base_map;
 }	t_game;
 
@@ -84,9 +84,6 @@ typedef struct s_game
 int		trgb(int t, int r, int g, int b);
 void	my_pixel_put(t_img *img, int x, int y, unsigned int colour);
 void	fill_vect(t_vector *vect, int x, int y);
-
-// copy_img.c
-t_img	imgcpy(t_vars vars, t_img src);
 
 // game.c
 void	fill_game(t_game *game, int argc, char **argv);
@@ -102,7 +99,9 @@ void	start_location(t_map *map);
 // error_exit.c
 void	error_and_exit(int code);
 
-// sprites.c
+// sprites / images
+// sprites.c put_sprite.c
 void	make_sprites(t_game *game);
+void	put_sprite(t_img *dst, t_img sprite, int x, int y);
 
 #endif

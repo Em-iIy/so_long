@@ -6,12 +6,40 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:11:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/09 14:01:20 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:51:59 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "../mlx/mlx.h"
+
+static void	choose_sprite(t_game *game, int x, int y)
+{
+	put_sprite(&game->base_map, game->sprites.bg, x, y);
+	if (game->map.map[y][x] == '1')
+		put_sprite(&game->base_map, game->sprites.wall, x, y);
+}
+
+static void	make_base_map(t_game *game)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	game->base_map.img = mlx_new_image(game->mlx, game->size.x, game->size.y);
+	game->base_map.addr = mlx_get_data_addr(game->base_map.img, \
+	&game->base_map.bits_ppx, &game->base_map.l_size, &game->base_map.endian);
+	while (x < game->map.size.x)
+	{
+		y = 0;
+		while (y < game->map.size.y)
+		{
+			choose_sprite(game, x, y);
+			y++;
+		}
+		x++;
+	}
+}
 
 void	fill_game(t_game *game, int argc, char **argv)
 {
@@ -22,4 +50,6 @@ void	fill_game(t_game *game, int argc, char **argv)
 	fill_vect(&game->p_pos, game->map.start_pos.x, game->map.start_pos.y);
 	game->win = mlx_new_window(game->mlx, game->size.x, game->size.y, "solong");
 	make_sprites(game);
+	make_base_map(game);
+	return ;
 }

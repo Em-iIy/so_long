@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 13:38:52 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/08 18:30:07 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:02:42 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	my_pixel_put(t_img *img, int x, int y, unsigned int colour)
 	char	*dst;
 	int		offset;
 
-	offset = y * img->line_size + x * (img->bits_per_pixel / 8);
+	if (colour == 0xFF000000)
+		return ;
+	offset = y * img->l_size + x * (img->bits_ppx / 8);
 	dst = img->addr + offset;
 	*(unsigned int *)dst = colour;
 }

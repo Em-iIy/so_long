@@ -1,7 +1,7 @@
 ## Files
 FILES_SRCS =	main.c \
 				so_long_utils.c \
-				copy_img.c \
+				put_sprite.c \
 				game.c \
 				sprites.c \
 				map_parse.c \
