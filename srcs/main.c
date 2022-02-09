@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 13:26:42 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/09 17:12:01 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:40:47 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ int	my_close(void)
 
 int	key_press(int keycode, t_vars *vars)
 {
-	if (keycode == 53)
+	if (keycode == ESC_KEY)
 		my_close();
-	else if (keycode == 0)
+	else if (keycode == A_KEY)
 		vars->pos.x--;
-	else if (keycode == 2)
+	else if (keycode == D_KEY)
 		vars->pos.x++;
-	else if (keycode == 1)
+	else if (keycode == S_KEY)
 		vars->pos.y--;
-	else if (keycode == 13)
+	else if (keycode == W_KEY)
 		vars->pos.y++;
 	printf("pos(%d, %d)\n", vars->pos.x, vars->pos.y);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 13:22:51 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/09 17:04:51 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:40:13 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,20 @@
 // # include <stdlib.h>
 // # include <unistd.h>
 
-enum
+enum e_errors
 {
 	INVALID_MAP = 1,
 	INVALID_MAP_PATH = 2,
-	INVALID_ARGS = 3
+	INVALID_ARGS = 3,
+};
+
+enum e_keys
+{
+	A_KEY = 0,
+	S_KEY = 1,
+	D_KEY = 2,
+	W_KEY = 13,
+	ESC_KEY = 53
 };
 
 // Structs
