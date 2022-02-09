@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:11:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/09 16:51:59 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:23:16 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ static void	make_base_map(t_game *game)
 	x = 0;
 	game->base_map.img = mlx_new_image(game->mlx, game->size.x, game->size.y);
 	game->base_map.addr = mlx_get_data_addr(game->base_map.img, \
-	&game->base_map.bits_ppx, &game->base_map.l_size, &game->base_map.endian);
+		&game->base_map.bits_ppx, &game->base_map.l_size, \
+		&game->base_map.endian);
 	while (x < game->map.size.x)
 	{
 		y = 0;
@@ -39,6 +40,8 @@ static void	make_base_map(t_game *game)
 		}
 		x++;
 	}
+	put_sprite(&game->base_map, game->sprites.exit, game->map.exit_pos.x, \
+		game->map.exit_pos.y);
 }
 
 void	fill_game(t_game *game, int argc, char **argv)
