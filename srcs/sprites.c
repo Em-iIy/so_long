@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 12:50:07 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/09 17:06:53 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/09 18:10:15 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,5 @@ void	make_sprites(t_game *game)
 	game->sprites.wall = make_sprite(game->mlx, "./sprites/wall.xpm");
 	game->sprites.col = make_sprite(game->mlx, "./sprites/col.xpm");
 	game->sprites.exit = make_sprite(game->mlx, "./sprites/exit.xpm");
+	game->sprites.player = make_sprite(game->mlx, "./sprites/player.xpm");
 }
