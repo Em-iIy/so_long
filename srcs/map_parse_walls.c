@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:31:46 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/08 19:16:13 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/10 14:47:17 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ static void	set_dimensions(t_map *map)
 
 static void	check_dimensions(t_map *map)
 {
-	int	i;
+	int				i;
+	unsigned int	x;
 
 	i = 0;
+	x = map->size.x;
 	while (map->map[i])
 	{
-		if (ft_strlen(map->map[i]) != map->size.x)
+		if (ft_strlen(map->map[i]) != x)
 			error_and_exit(INVALID_MAP);
 		i++;
 	}
