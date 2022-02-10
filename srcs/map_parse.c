@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 15:56:52 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/09 10:19:03 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/10 11:16:19 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,12 @@ t_map	map_parse(int argc, char **argv)
 {
 	t_map	ret_map;
 
-	if (argc == 2)
-	{
-		ret_map.map = map_read(argv[1]);
-		check_walls(&ret_map);
-		col_read(&ret_map);
-		start_location(&ret_map);
-		exit_location(&ret_map);
-	}
-	else
+	if (argc != 2)
 		error_and_exit(INVALID_ARGS);
+	ret_map.map = map_read(argv[1]);
+	check_walls(&ret_map);
+	col_read(&ret_map);
+	start_location(&ret_map);
+	exit_location(&ret_map);
 	return (ret_map);
 }

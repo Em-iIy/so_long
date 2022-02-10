@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/02/10 11:28:38 by gwinnink          #+#    #+#              #
+#    Updated: 2022/02/10 11:36:51 by gwinnink         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 ## Files
 FILES_SRCS =	main.c \
 				so_long_utils.c \
@@ -27,6 +39,8 @@ DIR_OBJS = ./objs/
 
 DIR_LIBFT = ./libft/
 
+DIR_FTPRINTF = ./libft/ft_printf/
+
 DIR_MLX = ./mlx/
 
 vpath %.c $(DIR_SRCS)
@@ -40,16 +54,18 @@ OBJS = $(FILES_OBJS:%=$(DIR_OBJS)%)
 ## Libraries
 LIBFT = $(DIR_LIBFT)libft.a
 
+LIBFTPRINTF = $(DIR_FTPRINTF)libftprintf.a
+
 MLX = libmlx.dylib 
 
 NAME = main
 
 ## Creating all files
-all : $(LIBFT) $(MLX) $(NAME) 
+all : $(LIBFT) $(LIBFTPRINTF) $(MLX) $(NAME) 
 
 # Compiling
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) $(MLXFLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBFTPRINTF) $(MLX) $(MLXFLAGS) -o $(NAME)
 
 # Objects
 $(DIR_OBJS)%.o : %.c
@@ -59,6 +75,9 @@ $(DIR_OBJS)%.o : %.c
 $(LIBFT) :
 	make -C $(DIR_LIBFT)
 
+$(LIBFTPRINTF) :
+	make -C $(DIR_FTPRINTF)
+	
 $(MLX) :
 	make -C $(DIR_MLX)
 	@mv $(DIR_MLX)libmlx.dylib ./
@@ -75,8 +94,14 @@ libft_clean :
 
 libft_fclean :
 	make -C $(DIR_LIBFT) fclean
+	
+ftprintf_clean :
+	make -C $(DIR_FTPRINTF) clean
 
-clean : mlx_clean libft_clean
+ftprintf_fclean :
+	make -C $(DIR_FTPRINTF) fclean
+
+clean : mlx_clean libft_clean 
 	rm -f $(OBJS)
 
 fclean : clean
