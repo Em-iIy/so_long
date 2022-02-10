@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 13:22:51 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/09 17:40:13 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/10 12:17:59 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ typedef struct s_game
 	t_map		map;
 	t_sprites	sprites;
 	t_img		base_map;
+	t_img		new_frame;
 }	t_game;
 
 // so_long_utils.c
@@ -112,5 +113,8 @@ void	error_and_exit(int code);
 // sprites.c put_sprite.c
 void	make_sprites(t_game *game);
 void	put_sprite(t_img *dst, t_img sprite, int x, int y);
+
+// make_frame.c
+void	make_frame(t_game *game, t_vector *col_pos, t_vector p_pos);
 
 #endif

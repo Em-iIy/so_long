@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 13:26:42 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/10 11:48:56 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/10 12:55:34 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	fill_game(&game, argc, argv);
-	mlx_put_image_to_window(game.mlx, game.win, game.base_map.img, 0, 0);
+	mlx_hook(game.win, 17, 1L << 0, my_close, &game);
 	mlx_loop(game.mlx);
 	// system("leaks main");
 }
@@ -75,7 +75,6 @@ int	main(int argc, char **argv)
 // 	}
 // 	img2 = imgcpy(vars, img);
 // 	mlx_put_image_to_window(vars.mlx, vars.win, img2.img, 0, 0);
-// 	mlx_hook(vars.win, 17, 1L << 0, my_close, &vars);
 // 	mlx_hook(vars.win, 2, 1L << 0, key_press, &vars);
 // 	mlx_loop(vars.mlx);
 // }

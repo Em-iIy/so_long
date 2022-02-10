@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:11:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/09 17:23:16 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/10 12:54:41 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	make_base_map(t_game *game)
 	int	y;
 
 	x = 0;
+	fill_vect(&game->base_map.size, game->size.x, game->size.y);
 	game->base_map.img = mlx_new_image(game->mlx, game->size.x, game->size.y);
 	game->base_map.addr = mlx_get_data_addr(game->base_map.img, \
 		&game->base_map.bits_ppx, &game->base_map.l_size, \
@@ -44,6 +45,14 @@ static void	make_base_map(t_game *game)
 		game->map.exit_pos.y);
 }
 
+static void	make_new_frame(t_game *game)
+{
+	game->new_frame.img = mlx_new_image(game->mlx, game->size.x, game->size.y);
+	game->new_frame.addr = mlx_get_data_addr(game->new_frame.img, \
+		&game->new_frame.bits_ppx, &game->new_frame.l_size, \
+		&game->new_frame.endian);
+}
+
 void	fill_game(t_game *game, int argc, char **argv)
 {
 	game->map = map_parse(argc, argv);
@@ -54,5 +63,7 @@ void	fill_game(t_game *game, int argc, char **argv)
 	game->win = mlx_new_window(game->mlx, game->size.x, game->size.y, "solong");
 	make_sprites(game);
 	make_base_map(game);
-	return ;
+	make_new_frame(game);
+	make_frame(game, game->map.col_pos, game->p_pos);
+	mlx_put_image_to_window(game->mlx, game->win, game->new_frame.img, 0, 0);
 }

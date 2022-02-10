@@ -6,7 +6,7 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:28:38 by gwinnink          #+#    #+#              #
-#    Updated: 2022/02/10 11:44:01 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/02/10 12:18:13 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ FILES_SRCS =	main.c \
 				map_parse_exit.c \
 				map_parse_start.c \
 				error_exit.c \
+				make_frame.c \
 
 FILES_OBJS = $(FILES_SRCS:.c=.o)
 
