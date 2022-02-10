@@ -6,7 +6,7 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:28:38 by gwinnink          #+#    #+#              #
-#    Updated: 2022/02/10 11:36:51 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/02/10 11:44:01 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,13 +101,13 @@ ftprintf_clean :
 ftprintf_fclean :
 	make -C $(DIR_FTPRINTF) fclean
 
-clean : mlx_clean libft_clean 
+clean : mlx_clean libft_clean ftprintf_clean
 	rm -f $(OBJS)
 
 fclean : clean
 	rm -f $(NAME)
 
-fclean_all : libft_fclean mlx_fclean fclean
+fclean_all : libft_fclean ftprintf_fclean mlx_fclean fclean
 
 ## Remaking
 re : fclean all
