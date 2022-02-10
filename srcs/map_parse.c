@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 15:56:52 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/10 11:16:19 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/10 14:45:38 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ static char	**map_read(char	*map_path)
 		close(fd);
 	}
 	else
+	{
 		error_and_exit(INVALID_MAP_PATH);
+		return (NULL);
+	}
 	return (ret_map);
 }
 
