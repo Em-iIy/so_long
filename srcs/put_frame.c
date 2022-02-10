@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_frame.c                                       :+:      :+:    :+:   */
+/*   put_frame.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 12:00:00 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/10 12:31:15 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/10 13:20:25 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
 #include "so_long.h"
 
-void	make_frame(t_game *game, t_vector *col_pos, t_vector p_pos)
+void	put_frame(t_game *game, t_vector *col_pos, t_vector p_pos)
 {
 	int	i;
 
@@ -29,4 +29,5 @@ void	make_frame(t_game *game, t_vector *col_pos, t_vector p_pos)
 		i++;
 	}
 	put_sprite(&game->new_frame, game->sprites.player, p_pos.x, p_pos.y);
+	mlx_put_image_to_window(game->mlx, game->win, game->new_frame.img, 0, 0);
 }

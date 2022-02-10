@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:11:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/10 12:54:41 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/10 13:20:39 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,5 @@ void	fill_game(t_game *game, int argc, char **argv)
 	make_sprites(game);
 	make_base_map(game);
 	make_new_frame(game);
-	make_frame(game, game->map.col_pos, game->p_pos);
-	mlx_put_image_to_window(game->mlx, game->win, game->new_frame.img, 0, 0);
+	put_frame(game, game->map.col_pos, game->p_pos);
 }
