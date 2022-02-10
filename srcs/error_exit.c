@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:42:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/10 11:48:13 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/10 14:56:47 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	error_and_exit(int code)
 		ft_printf("Error\nInvalid map path");
 	else if (code == INVALID_ARGS)
 		ft_printf("Error\nInvalid number of arguments");
-	exit(-1);
+	exit(1);
 }
