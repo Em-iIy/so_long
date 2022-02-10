@@ -6,11 +6,11 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:28:38 by gwinnink          #+#    #+#              #
-#    Updated: 2022/02/10 14:48:29 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/02/10 15:47:06 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = so_long
+NAME = ./so_long
 
 ## Files
 FILES_SRCS =	main.c \
@@ -25,14 +25,13 @@ FILES_SRCS =	main.c \
 				map_parse_exit.c \
 				map_parse_start.c \
 				error_exit.c \
-				put_frame.c \
+				put_frame.c
 
 FILES_OBJS = $(FILES_SRCS:.c=.o)
 
 ## Flags
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-# CFLAGS += -fsanitize=address
 
 MLXFLAGS = -framework OpenGL -framework AppKit
 
@@ -68,7 +67,8 @@ all : $(LIBFT) $(LIBFTPRINTF) $(MLX) $(NAME)
 
 # Compiling
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBFTPRINTF) $(MLX) $(MLXFLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBFTPRINTF) \
+		$(MLX) $(MLXFLAGS) -o $(NAME)
 
 # Objects
 $(DIR_OBJS)%.o : %.c
@@ -116,6 +116,55 @@ fclean_all : libft_fclean ftprintf_fclean mlx_fclean fclean
 re : fclean all
 
 re_all : fclean_all all
+
+## Running
+# Valid maps
+run : $(NAME)
+	$(NAME) ./maps/map.ber
+
+run2 : $(NAME)
+	$(NAME) ./maps/map2.ber
+	
+small : $(NAME)
+	$(NAME) ./maps/smallmap.ber
+	
+large : $(NAME)
+	$(NAME) ./maps/longlongmap.ber
+
+run_all : 	run \
+			run2 \
+			small \
+			large
+
+# Invalid maps
+invalid_c : $(NAME)
+	-$(NAME) ./maps/invalid_c.ber
+
+invalid_e : $(NAME)
+	-$(NAME) ./maps/invalid_e.ber
+	
+invalid_p : $(NAME)
+	-$(NAME) ./maps/invalid_p.ber
+
+invalid_size : $(NAME)
+	-$(NAME) ./maps/invalid_size.ber
+	
+invalid_walls : $(NAME)
+	-$(NAME) ./maps/invalid_walls.ber
+	
+invalid_map_config : $(NAME)
+	-$(NAME) ./maps/invalid_map_config.ber
+	
+invalid_map_path : $(NAME)
+	-$(NAME) apple
+
+invalid :	invalid_c \
+			invalid_e \
+			invalid_p \
+			invalid_size \
+			invalid_walls \
+			invalid_map_config \
+			invalid_map_path
 
 ## PHONY
 .PHONY : all clean fclean re mlx_clean mlx_fclean libft_clean \
