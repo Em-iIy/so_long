@@ -6,19 +6,19 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 13:26:42 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/09 17:40:47 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/10 11:48:56 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
+#include "../libft/ft_printf/ft_printf.h"
 #include "so_long.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdio.h>
 
 int	my_close(void)
 {
-	printf("Doei!\n");
+	ft_printf("Doei!\n");
 	exit(0);
 }
 
@@ -34,7 +34,7 @@ int	key_press(int keycode, t_vars *vars)
 		vars->pos.y--;
 	else if (keycode == W_KEY)
 		vars->pos.y++;
-	printf("pos(%d, %d)\n", vars->pos.x, vars->pos.y);
+	ft_printf("pos(%d, %d)\n", vars->pos.x, vars->pos.y);
 	return (0);
 }
 
