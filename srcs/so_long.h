@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 13:22:51 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/10 13:20:32 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/10 13:37:54 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,10 @@ typedef struct s_game
 int		trgb(int t, int r, int g, int b);
 void	my_pixel_put(t_img *img, int x, int y, unsigned int colour);
 void	fill_vect(t_vector *vect, int x, int y);
+
+// hook_utils.c
+int		my_close(void);
+int		key_press(int keycode, t_game *game);
 
 // game.c
 void	fill_game(t_game *game, int argc, char **argv);
