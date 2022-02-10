@@ -6,12 +6,15 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:28:38 by gwinnink          #+#    #+#              #
-#    Updated: 2022/02/10 13:20:49 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/02/10 14:48:29 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME = so_long
+
 ## Files
 FILES_SRCS =	main.c \
+				hook_utils.c \
 				so_long_utils.c \
 				put_sprite.c \
 				game.c \
@@ -28,7 +31,7 @@ FILES_OBJS = $(FILES_SRCS:.c=.o)
 
 ## Flags
 CC = gcc
-# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 # CFLAGS += -fsanitize=address
 
 MLXFLAGS = -framework OpenGL -framework AppKit
@@ -59,7 +62,6 @@ LIBFTPRINTF = $(DIR_FTPRINTF)libftprintf.a
 
 MLX = libmlx.dylib 
 
-NAME = main
 
 ## Creating all files
 all : $(LIBFT) $(LIBFTPRINTF) $(MLX) $(NAME) 
