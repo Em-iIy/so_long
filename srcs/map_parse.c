@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 15:56:52 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/10 14:45:38 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/10 15:35:34 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,19 @@ static char	**map_read(char	*map_path)
 	fd = open(map_path, O_RDONLY);
 	map = get_next_line(fd);
 	temp = map;
-	if (map)
-	{
-		while (temp)
-		{
-			temp = get_next_line(fd);
-			if (!temp)
-				break ;
-			map = ft_strjoin(map, temp);
-			free(temp);
-		}
-		ret_map = ft_split(map, '\n');
-		free(map);
-		close(fd);
-	}
-	else
-	{
+	if (!map)
 		error_and_exit(INVALID_MAP_PATH);
-		return (NULL);
+	while (temp)
+	{
+		temp = get_next_line(fd);
+		if (!temp)
+			break ;
+		map = ft_strjoin(map, temp);
+		free(temp);
 	}
+	ret_map = ft_split(map, '\n');
+	free(map);
+	close(fd);
 	return (ret_map);
 }
 

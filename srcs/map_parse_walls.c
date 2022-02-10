@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:31:46 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/10 14:47:17 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/10 15:39:35 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	check_dimensions(t_map *map)
 	while (map->map[i])
 	{
 		if (ft_strlen(map->map[i]) != x)
-			error_and_exit(INVALID_MAP);
+			error_and_exit(INVALID_MAP_SIZE);
 		i++;
 	}
 }
@@ -45,7 +45,7 @@ static void	check_dimensions(t_map *map)
 static void	is_wall(char c)
 {
 	if (c != '1')
-		error_and_exit(INVALID_MAP);
+		error_and_exit(INVALID_MAP_WALLS);
 }
 
 void	check_walls(t_map *map)

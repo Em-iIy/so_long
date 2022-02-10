@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:01:43 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/10 13:22:09 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/10 15:38:04 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	col_location(t_map *map)
 static void	is_valid(char c)
 {
 	if (c != 'C' && c != '1' && c != '0' && c != 'P' && c != 'E')
-		error_and_exit(INVALID_MAP);
+		error_and_exit(INVALID_MAP_CONFIG);
 }
 
 void	col_read(t_map *map)
@@ -66,7 +66,7 @@ void	col_read(t_map *map)
 		i++;
 	}
 	if (map->col_count == 0)
-		error_and_exit(INVALID_MAP);
+		error_and_exit(INVALID_MAP_COL);
 	map->col_pos = (t_vector *)ft_calloc(map->col_count + 1, sizeof(t_vector));
 	if (!map->col_pos)
 		return ;
