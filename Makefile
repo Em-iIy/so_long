@@ -6,7 +6,7 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:28:38 by gwinnink          #+#    #+#              #
-#    Updated: 2022/02/11 13:39:48 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/02/11 13:57:18 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,16 +62,20 @@ LIBFTPRINTF = $(DIR_FTPRINTF)libftprintf.a
 LIBMLX = libmlx.dylib 
 
 ## Creating all files
-all : $(NAME) 
+all : $(NAME)
 
 # Compiling
-$(NAME) : $(OBJS) $(LIBFT) $(LIBFTPRINTF) $(LIBMLX)
+$(NAME) : $(DIR_OBJS) $(OBJS) $(LIBFT) $(LIBFTPRINTF) $(LIBMLX)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBFTPRINTF) \
 		$(LIBMLX) $(MLXFLAGS) -o $(NAME)
 
 # Objects
 $(DIR_OBJS)%.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
+## Create directories
+$(DIR_OBJS) :
+	mkdir -p $@
 
 ## Libraries
 $(LIBFT) :
