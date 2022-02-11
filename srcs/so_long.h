@@ -6,16 +6,12 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 13:22:51 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/10 15:30:33 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/11 13:16:59 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-
-# include <stdio.h>
-// # include <stdlib.h>
-// # include <unistd.h>
 
 enum e_errors
 {

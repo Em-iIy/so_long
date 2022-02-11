@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:36:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/10 14:58:37 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/11 13:31:12 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "../libft/ft_printf/ft_printf.h"
 #include "so_long.h"
 #include <stdlib.h>
-#include <unistd.h>
 
 static void	win(int move_count)
 {
@@ -80,6 +79,6 @@ int	key_press(int keycode, t_game *game)
 
 int	my_close(void)
 {
-	ft_printf("Doei!\n");
+	ft_printf("Thanks for playing!\n");
 	exit(0);
 }
