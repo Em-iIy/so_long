@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:42:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/10 15:41:44 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/11 13:38:34 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	error_and_exit(int code)
 	if (code == INVALID_MAP_SIZE)
 		ft_printf("Error\nInvalid map size (map is not a rectangle)\n");
 	else if (code == INVALID_MAP_PATH)
-		ft_printf("Error\nInvalid map path\n");
+		ft_printf("Error\nInvalid map path or map is empty\n");
 	else if (code == INVALID_MAP_CONFIG)
 		ft_printf("Error\nInvalid map config (illegal char in map)\n");
 	else if (code == INVALID_MAP_EXIT)
