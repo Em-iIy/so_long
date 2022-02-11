@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:36:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/11 13:31:12 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/11 14:00:02 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 static void	win(int move_count)
 {
-	ft_printf("YOU WIN!\nFinal move count:%d", move_count + 1);
+	ft_printf("YOU WIN!\nFinal move count:%d\n", move_count + 1);
 	exit(0);
 }
 
