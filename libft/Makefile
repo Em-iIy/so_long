@@ -6,7 +6,7 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:28:19 by gwinnink          #+#    #+#              #
-#    Updated: 2022/02/10 11:28:20 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/02/22 10:31:47 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRCS =		./ft_atoi.c ./ft_bzero.c ./ft_calloc.c ./ft_isalnum.c \
 			./ft_strrchr.c ./ft_tolower.c ./ft_toupper.c ./ft_substr.c \
 			./ft_strjoin.c ./ft_strtrim.c ./ft_split.c ./ft_itoa.c \
 			./ft_strmapi.c ./ft_striteri.c ./ft_putchar_fd.c ./ft_putstr_fd.c \
-			./ft_putendl_fd.c ./ft_putnbr_fd.c
+			./ft_putendl_fd.c ./ft_putnbr_fd.c \
+			./malloc_wrap.c
 
 GNL_SRCS = ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
 
