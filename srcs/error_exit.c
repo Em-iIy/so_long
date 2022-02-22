@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:42:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/17 16:06:53 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/22 11:12:00 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ void	error_and_exit(int code)
 		ft_printf("Error\nInvalid number of arguments\n");
 	else if (code == MALLOC_ERROR)
 		ft_printf("Error\nFailed to allocate memory\n");
-	exit(1);
+	exit(code);
 }
