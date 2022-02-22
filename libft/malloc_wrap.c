@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   malloc_wrap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/14 13:44:54 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/17 15:56:47 by gwinnink         ###   ########.fr       */
+/*   Created: 2022/02/17 15:48:17 by gwinnink          #+#    #+#             */
+/*   Updated: 2022/02/17 15:51:52 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "malloc_wrap.h"
+#include "../srcs/so_long.h"
+#include <stdlib.h>
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
+void	*malloc_wrap(size_t size)
 {
-	char			*ret_str;
-	unsigned int	i;
+	void	*ret;
 
-	i = 0;
-	ret_str = (char *)malloc_wrap((len + 1) * sizeof(char));
-	if (ret_str == 0x0)
-		return (ret_str);
-	while (i < len && s[start + i] && start < ft_strlen(s))
-	{
-		ret_str[i] = s[start + i];
-		i++;
-	}
-	ret_str[i] = 0;
-	return (ret_str);
+	ret = malloc(size);
+	if (!ret)
+		error_and_exit(MALLOC_ERROR);
+	return (ret);
 }

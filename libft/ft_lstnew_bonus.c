@@ -6,17 +6,18 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 17:43:42 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/08 17:43:43 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/17 16:00:25 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "malloc_wrap.h"
 
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*head;
 
-	head = (t_list *)malloc(sizeof(t_list));
+	head = (t_list *)malloc_wrap(sizeof(t_list));
 	if (head == 0x0)
 		return (NULL);
 	head->content = content;

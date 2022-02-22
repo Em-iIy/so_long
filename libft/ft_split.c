@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwinnink <gwinnink@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:44:20 by gwinnink          #+#    #+#             */
-/*   Updated: 2021/12/14 13:44:21 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/17 15:56:10 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "malloc_wrap.h"
 
 static int	ft_str_count(const char *s, char c);
 static char	**free_all(char **ret);
@@ -24,7 +25,7 @@ char	**ft_split(const char *s, char c)
 
 	words = 0;
 	str_count = ft_str_count(s, c);
-	ret = (char **)malloc((str_count + 1) * sizeof(char *));
+	ret = (char **)malloc_wrap((str_count + 1) * sizeof(char *));
 	if (ret == 0x0)
 		return (0);
 	while (words < str_count)
