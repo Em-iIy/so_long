@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:44:54 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/17 15:56:47 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/22 11:02:03 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 
 	i = 0;
 	ret_str = (char *)malloc_wrap((len + 1) * sizeof(char));
-	if (ret_str == 0x0)
-		return (ret_str);
 	while (i < len && s[start + i] && start < ft_strlen(s))
 	{
 		ret_str[i] = s[start + i];

@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:44:20 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/17 15:56:10 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/22 11:01:56 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,11 @@ char	**ft_split(const char *s, char c)
 	while (words < str_count)
 	{
 		i = 0;
-		while ((*s == c))
+		while (*s == c)
 			s++;
 		while (s[i] != c && s[i])
 			i++;
 		ret[words] = ft_substr(s, 0, i);
-		if (!ret[words])
-			return (free_all(ret));
 		s += i;
 		words++;
 	}
