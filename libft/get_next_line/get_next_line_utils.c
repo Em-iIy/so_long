@@ -6,11 +6,11 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:37:24 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/08 14:19:33 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/22 10:43:18 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "../malloc_wrap.h"
 #include <stddef.h>
 
 size_t	ft_strlen2(const char *s)
@@ -31,7 +31,7 @@ void	*ft_calloc2(unsigned int count, size_t size)
 	unsigned int	i;
 
 	i = 0;
-	ret_ptr = (char *)malloc(count * size);
+	ret_ptr = (char *)malloc_wrap(count * size);
 	if (!ret_ptr)
 		return (NULL);
 	while (i < count * size)

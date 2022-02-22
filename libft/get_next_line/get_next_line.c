@@ -6,12 +6,12 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:37:15 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/08 16:47:54 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/22 10:44:10 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdlib.h>
+#include "../malloc_wrap.h"
 #include <unistd.h>
 
 static char	*read_into_buff(int fd, char *buff)
@@ -20,7 +20,7 @@ static char	*read_into_buff(int fd, char *buff)
 	int		b_read;
 
 	b_read = 1;
-	temp = (char *)malloc(BUFFER_SIZE + 1);
+	temp = (char *)malloc_wrap(BUFFER_SIZE + 1);
 	if (!temp)
 		return (NULL);
 	while (!ft_strchr2(buff, '\n') && b_read != 0)
