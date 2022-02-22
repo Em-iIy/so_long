@@ -6,42 +6,12 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:44:20 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/22 11:01:56 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/22 11:09:44 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "malloc_wrap.h"
-
-static int	ft_str_count(const char *s, char c);
-static char	**free_all(char **ret);
-
-char	**ft_split(const char *s, char c)
-{
-	char	**ret;
-	int		str_count;
-	int		words;
-	int		i;
-
-	words = 0;
-	str_count = ft_str_count(s, c);
-	ret = (char **)malloc_wrap((str_count + 1) * sizeof(char *));
-	if (ret == 0x0)
-		return (0);
-	while (words < str_count)
-	{
-		i = 0;
-		while (*s == c)
-			s++;
-		while (s[i] != c && s[i])
-			i++;
-		ret[words] = ft_substr(s, 0, i);
-		s += i;
-		words++;
-	}
-	ret[str_count] = 0;
-	return (ret);
-}
 
 static int	ft_str_count(const char *s, char c)
 {
@@ -59,15 +29,27 @@ static int	ft_str_count(const char *s, char c)
 	return (str_count);
 }
 
-static char	**free_all(char **ret)
+char	**ft_split(const char *s, char c)
 {
-	int	i;
+	char	**ret;
+	int		str_count;
+	int		words;
+	int		i;
 
-	i = 0;
-	while (ret[i])
+	words = 0;
+	str_count = ft_str_count(s, c);
+	ret = (char **)malloc_wrap((str_count + 1) * sizeof(char *));
+	while (words < str_count)
 	{
-		free(ret[i]);
-		i++;
+		i = 0;
+		while (*s == c)
+			s++;
+		while (s[i] != c && s[i])
+			i++;
+		ret[words] = ft_substr(s, 0, i);
+		s += i;
+		words++;
 	}
-	return (0);
+	ret[str_count] = 0;
+	return (ret);
 }
