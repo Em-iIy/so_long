@@ -6,7 +6,7 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:28:38 by gwinnink          #+#    #+#              #
-#    Updated: 2022/02/23 12:41:37 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/02/23 13:00:09 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -187,4 +187,4 @@ invalid :	invalid_c \
 
 ## PHONY
 .PHONY : all clean fclean re mlx_clean mlx_fclean libft_clean \
-			libft_fclean fclean_all re_all
+			libft_fclean fclean_all re_all invalid run_all
