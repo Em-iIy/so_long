@@ -6,7 +6,7 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:28:19 by gwinnink          #+#    #+#              #
-#    Updated: 2022/02/22 10:31:47 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/02/23 12:48:33 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,17 +47,20 @@ NAME = libft.a
 
 all : $(NAME)
 
+%.o : %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+
 $(NAME) : $(OBJS)
-	ar rsu $(NAME) $(OBJS)
+	@ar crsu $(NAME) $(OBJS)
 
 bonus : $(OBJS)
 	$(MAKE) WITH_BONUS=1
 
 clean :
-	rm -f $(OBJS) $(B_OBJS)
+	@rm -f $(OBJS) $(B_OBJS)
 
 fclean : clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re : fclean all
 

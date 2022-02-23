@@ -6,7 +6,7 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:28:38 by gwinnink          #+#    #+#              #
-#    Updated: 2022/02/11 13:57:18 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/02/23 12:41:37 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,52 +66,56 @@ all : $(NAME)
 
 # Compiling
 $(NAME) : $(DIR_OBJS) $(OBJS) $(LIBFT) $(LIBFTPRINTF) $(LIBMLX)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBFTPRINTF) \
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBFTPRINTF) \
 		$(LIBMLX) $(MLXFLAGS) -o $(NAME)
+	@echo "so_long made"
 
 # Objects
 $(DIR_OBJS)%.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 ## Create directories
 $(DIR_OBJS) :
-	mkdir -p $@
+	@mkdir -p $@
 
 ## Libraries
 $(LIBFT) :
-	make -C $(DIR_LIBFT)
+	@echo "Making libft"
+	@make -C $(DIR_LIBFT)
 
 $(LIBFTPRINTF) :
-	make -C $(DIR_FTPRINTF)
+	@echo "Making libftprintf"
+	@make -C $(DIR_FTPRINTF)
 	
 $(LIBMLX) :
-	make -C $(DIR_MLX)
+	@echo "Making minilibx"
+	@make -C $(DIR_MLX)
 	@mv $(DIR_MLX)libmlx.dylib ./
 
 ## Cleaning
 mlx_clean :
-	make -C $(DIR_MLX) clean
+	@make -C $(DIR_MLX) clean
 
 mlx_fclean :
-	make -C $(DIR_MLX) fclean
+	@make -C $(DIR_MLX) fclean
 
 libft_clean :
-	make -C $(DIR_LIBFT) clean
+	@make -C $(DIR_LIBFT) clean
 
 libft_fclean :
-	make -C $(DIR_LIBFT) fclean
+	@make -C $(DIR_LIBFT) fclean
 	
 ftprintf_clean :
-	make -C $(DIR_FTPRINTF) clean
+	@make -C $(DIR_FTPRINTF) clean
 
 ftprintf_fclean :
-	make -C $(DIR_FTPRINTF) fclean
+	@make -C $(DIR_FTPRINTF) fclean
 
 clean : mlx_clean libft_clean ftprintf_clean
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean : clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 fclean_all : libft_fclean ftprintf_fclean mlx_fclean fclean
 

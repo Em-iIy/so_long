@@ -6,7 +6,7 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:29:00 by gwinnink          #+#    #+#              #
-#    Updated: 2022/02/10 11:29:01 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/02/23 12:48:37 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,16 @@ NAME = libftprintf.a
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	ar rsu $(NAME) $(OBJS)
+	@ar crsu $(NAME) $(OBJS)
+
+%.o : %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-	rm -rf $(OBJS)
+	@rm -rf $(OBJS)
 
 fclean : clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re : fclean all
 
