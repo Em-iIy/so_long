@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 12:00:00 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/23 11:28:03 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/23 12:25:16 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,16 @@
 
 static void	printing(t_game *game, int move_count)
 {
-	ft_printf("move:%d\n", move_count);
-	mlx_string_put(game->mlx, game->win, 30, 30, trgb(0, 255, 255, 255), \
-		ft_strjoin("move:", ft_itoa(move_count)));
+	char	*print;
+	char	*mcount;
+
+	mcount = ft_itoa(move_count);
+	print = ft_strjoin("move: ", mcount);
+	ft_printf("%s\n", print);
+	mlx_string_put(game->mlx, game->win, 12, 22, trgb(0, 20, 20, 20), print);
+	mlx_string_put(game->mlx, game->win, 10, 20, trgb(0, 180, 0, 150), print);
+	free(mcount);
+	free(print);
 }
 
 void	put_frame(t_game *game, t_vector *col_pos, t_vector p_pos)
