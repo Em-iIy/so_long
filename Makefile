@@ -6,7 +6,7 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:28:38 by gwinnink          #+#    #+#              #
-#    Updated: 2022/02/23 13:00:09 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/02/23 13:05:16 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,15 +80,15 @@ $(DIR_OBJS) :
 
 ## Libraries
 $(LIBFT) :
-	@echo "Making libft"
+	@echo "Compiling libft..."
 	@make -C $(DIR_LIBFT)
 
 $(LIBFTPRINTF) :
-	@echo "Making libftprintf"
+	@echo "Compiling libftprintf..."
 	@make -C $(DIR_FTPRINTF)
 	
 $(LIBMLX) :
-	@echo "Making minilibx"
+	@echo "Compiling minilibx..."
 	@make -C $(DIR_MLX)
 	@mv $(DIR_MLX)libmlx.dylib ./
 
