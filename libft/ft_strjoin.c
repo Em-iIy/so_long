@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:44:30 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/17 15:54:30 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/23 11:07:34 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,12 @@ char	*ft_strjoin(const char *s1, const char *s2)
 
 	i = 0;
 	j = 0;
-	if (!s1 || !s2)
-		return (NULL);
 	ret_str = (char *)malloc_wrap(ft_strlen(s1) + ft_strlen(s2) + 1);
 	while (s1[i])
 	{
 		ret_str[i] = s1[i];
 		i++;
 	}
-	free((char *)s1);
 	while (s2[j])
 	{
 		ret_str[i + j] = s2[j];
