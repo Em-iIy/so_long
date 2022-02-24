@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:36:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/24 13:08:32 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:17:11 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include "so_long.h"
 #include <stdlib.h>
 
-static void	win(int move_count)
+static void	win(int moves)
 {
-	ft_printf("YOU WIN!\nFinal move count:%d\n", move_count + 1);
+	ft_printf("move: %d\nYOU WIN!\nFinal move count:%d\n", moves, moves);
 	exit(0);
 }
 
@@ -44,7 +44,7 @@ static int	check_move(t_map *map, t_vector p_pos, int move_count)
 	else if (map->exit_pos.x == p_pos.x && map->exit_pos.y == p_pos.y)
 	{
 		if (map->col_count == 0)
-			win(move_count++);
+			win(move_count + 1);
 	}
 	return (1);
 }
