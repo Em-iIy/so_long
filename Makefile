@@ -6,13 +6,14 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:28:38 by gwinnink          #+#    #+#              #
-#    Updated: 2022/02/23 13:05:16 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/02/24 13:08:03 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# --------------------------------------------------Name
 NAME = ./so_long
 
-## Files
+# --------------------------------------------------Files
 FILES_SRCS =	main.c \
 				hook_utils.c \
 				so_long_utils.c \
@@ -29,13 +30,13 @@ FILES_SRCS =	main.c \
 
 FILES_OBJS = $(FILES_SRCS:.c=.o)
 
-## Flags
+# --------------------------------------------------Flags
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 MLXFLAGS = -framework OpenGL -framework AppKit
 
-## Directories
+# --------------------------------------------------Directories
 DIR_SRCS = ./srcs/
 
 DIR_OBJS = ./objs/
@@ -48,37 +49,37 @@ DIR_MLX = ./mlx/
 
 vpath %.c $(DIR_SRCS)
 
-## Sources
+# --------------------------------------------------Sources
 SRCS = $(FILES_SRCS:%=$(DIR_SRCS)%)
 
-## Objects
+# --------------------------------------------------Objects
 OBJS = $(FILES_OBJS:%=$(DIR_OBJS)%)
 
-## Libraries
+# --------------------------------------------------Libraries
 LIBFT = $(DIR_LIBFT)libft.a
 
 LIBFTPRINTF = $(DIR_FTPRINTF)libftprintf.a
 
 LIBMLX = libmlx.dylib 
 
-## Creating all files
+# --------------------------------------------------Creating all files
 all : $(NAME)
 
-# Compiling
+# ----------------------------------------Compiling
 $(NAME) : $(DIR_OBJS) $(OBJS) $(LIBFT) $(LIBFTPRINTF) $(LIBMLX)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBFTPRINTF) \
 		$(LIBMLX) $(MLXFLAGS) -o $(NAME)
 	@echo "so_long made"
 
-# Objects
+# ----------------------------------------Objects
 $(DIR_OBJS)%.o : %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-## Create directories
+# ----------------------------------------Create directories
 $(DIR_OBJS) :
 	@mkdir -p $@
 
-## Libraries
+# ----------------------------------------Libraries
 $(LIBFT) :
 	@echo "Compiling libft..."
 	@make -C $(DIR_LIBFT)
@@ -92,7 +93,7 @@ $(LIBMLX) :
 	@make -C $(DIR_MLX)
 	@mv $(DIR_MLX)libmlx.dylib ./
 
-## Cleaning
+# --------------------------------------------------Cleaning
 mlx_clean :
 	@make -C $(DIR_MLX) clean
 
@@ -119,13 +120,18 @@ fclean : clean
 
 fclean_all : libft_fclean ftprintf_fclean mlx_fclean fclean
 
-## Remaking
+# --------------------------------------------------Remaking
 re : fclean all
 
 re_all : fclean_all all
 
-## Running
-# Valid maps
+# --------------------------------------------------Running
+# ----------------------------------------Norminette
+norme:
+	norminette $(DIR_SRCS)
+	norminette $(DIR_LIBFT)
+
+# ----------------------------------------Valid maps
 run : $(NAME)
 	$(NAME) ./maps/map.ber
 
@@ -143,7 +149,7 @@ run_all : 	run \
 			small \
 			large
 
-# Invalid maps
+# ----------------------------------------Invalid maps
 invalid_c : $(NAME)
 	-$(NAME) ./maps/invalid_c.ber
 	@echo "\n"
@@ -185,6 +191,6 @@ invalid :	invalid_c \
 			invalid_map_empty \
 			invalid_map_path
 
-## PHONY
+# --------------------------------------------------PHONY
 .PHONY : all clean fclean re mlx_clean mlx_fclean libft_clean \
 			libft_fclean fclean_all re_all invalid run_all

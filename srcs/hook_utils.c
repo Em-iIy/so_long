@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:36:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/23 11:28:05 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:08:32 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static void	win(int move_count)
 	ft_printf("YOU WIN!\nFinal move count:%d\n", move_count + 1);
 	exit(0);
 }
-
 
 static int	check_move(t_map *map, t_vector p_pos, int move_count)
 {
