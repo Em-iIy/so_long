@@ -6,11 +6,12 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 15:56:52 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/10 15:35:34 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/01 11:26:32 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
+#include "../libft/get_next_line/get_next_line.h"
 #include "so_long.h"
 #include <fcntl.h>
 #include <stdlib.h>
@@ -32,7 +33,7 @@ static char	**map_read(char	*map_path)
 		temp = get_next_line(fd);
 		if (!temp)
 			break ;
-		map = ft_strjoin(map, temp);
+		map = ft_strjoin_free(map, temp);
 		free(temp);
 	}
 	ret_map = ft_split(map, '\n');

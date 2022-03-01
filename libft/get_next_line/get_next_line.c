@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:37:15 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/22 10:44:10 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/01 11:26:56 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char	*read_into_buff(int fd, char *buff)
 	{
 		b_read = read(fd, temp, BUFFER_SIZE);
 		temp[b_read] = '\0';
-		buff = ft_strjoin2(buff, temp);
+		buff = ft_strjoin_free(buff, temp);
 	}
 	free(temp);
 	return (buff);

@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:37:24 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/22 10:43:18 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/01 11:28:23 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	*ft_calloc2(unsigned int count, size_t size)
 	return ((void *)ret_ptr);
 }
 
-char	*ft_strjoin2(char *s1, char *s2)
+char	*ft_strjoin_free(char *s1, char *s2)
 {
 	char	*ret_str;
 	int		i;

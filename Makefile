@@ -6,7 +6,7 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:28:38 by gwinnink          #+#    #+#              #
-#    Updated: 2022/02/24 13:08:03 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/03/01 11:14:53 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -150,46 +150,24 @@ run_all : 	run \
 			large
 
 # ----------------------------------------Invalid maps
-invalid_c : $(NAME)
+
+invalid : $(NAME)
 	-$(NAME) ./maps/invalid_c.ber
 	@echo "\n"
-
-invalid_e : $(NAME)
 	-$(NAME) ./maps/invalid_e.ber
 	@echo "\n"
-	
-invalid_p : $(NAME)
 	-$(NAME) ./maps/invalid_p.ber
 	@echo "\n"
-
-invalid_size : $(NAME)
 	-$(NAME) ./maps/invalid_size.ber
 	@echo "\n"
-	
-invalid_walls : $(NAME)
 	-$(NAME) ./maps/invalid_walls.ber
 	@echo "\n"
-	
-invalid_map_config : $(NAME)
 	-$(NAME) ./maps/invalid_map_config.ber
 	@echo "\n"
-	
-invalid_map_empty : $(NAME)
 	-$(NAME) ./maps/empty.ber
 	@echo "\n"
-	
-invalid_map_path : $(NAME)
 	-$(NAME) apple
 	@echo "\n"
-
-invalid :	invalid_c \
-			invalid_e \
-			invalid_p \
-			invalid_size \
-			invalid_walls \
-			invalid_map_config \
-			invalid_map_empty \
-			invalid_map_path
 
 # --------------------------------------------------PHONY
 .PHONY : all clean fclean re mlx_clean mlx_fclean libft_clean \
