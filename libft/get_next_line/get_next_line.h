@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:38:11 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/01 11:26:44 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/01 17:15:32 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 20
 # endif
 
 # include <stddef.h>
