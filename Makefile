@@ -6,10 +6,16 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:28:38 by gwinnink          #+#    #+#              #
-#    Updated: 2022/03/01 17:39:29 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/03/01 19:55:00 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# --------------------------------------------------Colors
+ESC = \033
+NORMAL = $(ESC)[m\017
+BOLD = $(ESC)[1m
+GREEN = $(ESC)[0;92m$(BOLD)
+BLUE = $(ESC)[0;94m$(BOLD)
 # --------------------------------------------------Name
 NAME = ./so_long
 
@@ -71,7 +77,7 @@ all : $(NAME)
 $(NAME) : $(DIR_OBJS) $(OBJS) $(LIBFT) $(LIBFTPRINTF) $(LIBMLX)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBFTPRINTF) \
 		$(LIBMLX) $(MLXFLAGS) -o $(NAME)
-	@echo "so_long made"
+	@echo "$(GREEN)so_long made$(NORMAL)"
 
 # ----------------------------------------Objects
 $(DIR_OBJS)%.o : %.c
@@ -83,15 +89,15 @@ $(DIR_OBJS) :
 
 # ----------------------------------------Libraries
 $(LIBFT) :
-	@echo "Compiling libft..."
+	@echo "$(BLUE)Compiling libft...$(NORMAL)"
 	@make -C $(DIR_LIBFT)
 
 $(LIBFTPRINTF) :
-	@echo "Compiling libftprintf..."
+	@echo "$(BLUE)Compiling libftprintf...$(NORMAL)"
 	@make -C $(DIR_FTPRINTF)
 	
 $(LIBMLX) :
-	@echo "Compiling minilibx..."
+	@echo "$(BLUE)Compiling minilibx...$(NORMAL)"
 	@make -C $(DIR_MLX)
 	@mv $(DIR_MLX)libmlx.dylib ./
 
@@ -135,15 +141,19 @@ norme:
 
 # ----------------------------------------Valid maps
 run : $(NAME)
+	@echo "$(GREEN)maps/map.ber$(NORMAL)"
 	$(NAME) ./maps/map.ber
 
 run2 : $(NAME)
+	@echo "$(GREEN)maps/map2.ber$(NORMAL)"
 	$(NAME) ./maps/map2.ber
 	
 small : $(NAME)
+	@echo "$(GREEN)maps/smallmap.ber$(NORMAL)"
 	$(NAME) ./maps/smallmap.ber
 	
 large : $(NAME)
+	@echo "$(GREEN)maps/longlongmap.ber$(NORMAL)"
 	$(NAME) ./maps/longlongmap.ber
 
 run_all : 	run \
@@ -154,25 +164,25 @@ run_all : 	run \
 # ----------------------------------------Invalid maps
 
 invalid : $(NAME)
+	@echo "$(GREEN)invalid_c.ber$(NORMAL)"
 	-$(NAME) ./maps/invalid_c.ber
-	@echo "\n"
+	@echo "$(GREEN)\ninvalid_e.ber$(NORMAL)"
 	-$(NAME) ./maps/invalid_e.ber
-	@echo "\n"
+	@echo "$(GREEN)\ninvalid_p.ber$(NORMAL)"
 	-$(NAME) ./maps/invalid_p.ber
-	@echo "\n"
+	@echo "$(GREEN)\ninvalid_size.ber$(NORMAL)"
 	-$(NAME) ./maps/invalid_size.ber
-	@echo "\n"
+	@echo "$(GREEN)\ninvalid_walls.ber$(NORMAL)"
 	-$(NAME) ./maps/invalid_walls.ber
-	@echo "\n"
+	@echo "$(GREEN)\ninvalid_map_config$(NORMAL)"
 	-$(NAME) ./maps/invalid_map_config.ber
-	@echo "\n"
+	@echo "$(GREEN)\nempty.ber$(NORMAL)"
 	-$(NAME) ./maps/empty.ber
-	@echo "\n"
+	@echo "$(GREEN)\ndoes_not_exist$(NORMAL)"
 	-$(NAME) ./maps/does_not_exist.ber
-	@echo "\n"
+	@echo "$(GREEN)\ninvalid_map_name$(NORMAL)"
 	-$(NAME) ./maps/invalid_map_name
-	@echo "\n"
-
+	
 # --------------------------------------------------PHONY
 .PHONY : all clean fclean re mlx_clean mlx_fclean libft_clean \
 			libft_fclean fclean_all re_all invalid run_all
