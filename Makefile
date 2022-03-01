@@ -6,7 +6,7 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:28:38 by gwinnink          #+#    #+#              #
-#    Updated: 2022/03/01 11:14:53 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/03/01 17:39:29 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,8 @@ FILES_OBJS = $(FILES_SRCS:.c=.o)
 # --------------------------------------------------Flags
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+# ----------------------------------------Debug
+# CFLAGS += -g
 
 MLXFLAGS = -framework OpenGL -framework AppKit
 
@@ -166,7 +168,9 @@ invalid : $(NAME)
 	@echo "\n"
 	-$(NAME) ./maps/empty.ber
 	@echo "\n"
-	-$(NAME) apple
+	-$(NAME) ./maps/does_not_exist.ber
+	@echo "\n"
+	-$(NAME) ./maps/invalid_map_name
 	@echo "\n"
 
 # --------------------------------------------------PHONY
