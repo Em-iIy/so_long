@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 13:22:51 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/17 15:51:46 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/01 13:00:04 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ enum e_errors
 	INVALID_MAP_COL = 6,
 	INVALID_MAP_WALLS = 7,
 	INVALID_ARGS = 8,
-	MALLOC_ERROR = 9
+	INVALID_MAP_NAME = 9,
+	MALLOC_ERROR = 10
 };
 
 enum e_keys

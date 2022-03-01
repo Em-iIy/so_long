@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:42:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/22 11:12:00 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/01 13:03:00 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	error_and_exit(int code)
 		ft_printf("Error\nInvalid map config (incomplete walls)\n");
 	else if (code == INVALID_ARGS)
 		ft_printf("Error\nInvalid number of arguments\n");
+	else if (code == INVALID_MAP_NAME)
+		ft_printf("Error\nInvalid map extension\n");
 	else if (code == MALLOC_ERROR)
 		ft_printf("Error\nFailed to allocate memory\n");
 	exit(code);
