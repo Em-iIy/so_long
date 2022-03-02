@@ -6,12 +6,12 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 12:50:07 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/09 18:10:15 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/02 11:38:59 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "../mlx/mlx.h"
+#include "mlx.h"
 
 static t_img	make_sprite(void *mlx, char *path)
 {

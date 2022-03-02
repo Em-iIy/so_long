@@ -6,13 +6,13 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 12:00:00 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/23 12:25:16 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/02 11:38:47 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mlx/mlx.h"
-#include "../libft/libft.h"
-#include "../libft/ft_printf/ft_printf.h"
+#include "mlx.h"
+#include "libft.h"
+#include "ft_printf.h"
 #include "so_long.h"
 
 static void	printing(t_game *game, int move_count)

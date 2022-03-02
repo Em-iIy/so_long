@@ -6,7 +6,7 @@
 #    By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 11:28:38 by gwinnink          #+#    #+#              #
-#    Updated: 2022/03/01 19:55:00 by gwinnink         ###   ########.fr        #
+#    Updated: 2022/03/02 11:41:49 by gwinnink         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ NORMAL = $(ESC)[m\017
 BOLD = $(ESC)[1m
 GREEN = $(ESC)[0;92m$(BOLD)
 BLUE = $(ESC)[0;94m$(BOLD)
+
 # --------------------------------------------------Name
 NAME = ./so_long
 
@@ -42,6 +43,7 @@ CFLAGS = -Wall -Wextra -Werror
 # ----------------------------------------Debug
 # CFLAGS += -g
 
+# ----------------------------------------MLX
 MLXFLAGS = -framework OpenGL -framework AppKit
 
 # --------------------------------------------------Directories
@@ -56,6 +58,10 @@ DIR_FTPRINTF = ./libft/ft_printf/
 DIR_MLX = ./mlx/
 
 vpath %.c $(DIR_SRCS)
+
+# ----------------------------------------Include paths
+INC = -I$(DIR_LIBFT) -I$(DIR_MLX) -I$(DIR_FTPRINTF) -I$(DIR_LIBFT)/get_next_line/
+
 
 # --------------------------------------------------Sources
 SRCS = $(FILES_SRCS:%=$(DIR_SRCS)%)
@@ -75,13 +81,13 @@ all : $(NAME)
 
 # ----------------------------------------Compiling
 $(NAME) : $(DIR_OBJS) $(OBJS) $(LIBFT) $(LIBFTPRINTF) $(LIBMLX)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBFTPRINTF) \
+	@$(CC) $(CFLAGS) $(INC) $(OBJS) $(LIBFT) $(LIBFTPRINTF) \
 		$(LIBMLX) $(MLXFLAGS) -o $(NAME)
 	@echo "$(GREEN)so_long made$(NORMAL)"
 
 # ----------------------------------------Objects
 $(DIR_OBJS)%.o : %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 # ----------------------------------------Create directories
 $(DIR_OBJS) :
@@ -185,4 +191,5 @@ invalid : $(NAME)
 	
 # --------------------------------------------------PHONY
 .PHONY : all clean fclean re mlx_clean mlx_fclean libft_clean \
-			libft_fclean fclean_all re_all invalid run_all
+			libft_fclean fclean_all re_all invalid run_all \
+			norme

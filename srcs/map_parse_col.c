@@ -6,12 +6,12 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:01:43 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/11 13:32:31 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/02 11:38:17 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "../libft/libft.h"
+#include "libft.h"
 
 static void	col_location(t_map *map)
 {

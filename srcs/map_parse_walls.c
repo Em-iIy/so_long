@@ -6,11 +6,11 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:31:46 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/10 15:39:35 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/02 11:38:32 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft.h"
 #include "so_long.h"
 
 static void	set_dimensions(t_map *map)

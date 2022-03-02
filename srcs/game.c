@@ -6,12 +6,12 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:11:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/24 13:16:24 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/02 11:37:37 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "../mlx/mlx.h"
+#include "mlx.h"
 
 static void	choose_sprite(t_game *game, int x, int y)
 {

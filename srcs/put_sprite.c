@@ -6,11 +6,11 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 13:25:26 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/10 12:27:09 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/02 11:38:52 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mlx/mlx.h"
+#include "mlx.h"
 #include "so_long.h"
 
 static int	get_pixel_color(t_img img, int x, int y)

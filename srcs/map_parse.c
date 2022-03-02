@@ -6,15 +6,14 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 15:56:52 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/01 17:33:49 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/02 11:38:11 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../libft/get_next_line/get_next_line.h"
+#include "libft.h"
+#include "get_next_line.h"
 #include "so_long.h"
 #include <fcntl.h>
-#include <stdlib.h>
 
 static void	check_ber(char *map_path)
 {

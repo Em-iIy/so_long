@@ -6,12 +6,12 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:36:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/24 13:17:11 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/02 11:37:46 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mlx/mlx.h"
-#include "../libft/ft_printf/ft_printf.h"
+#include "mlx.h"
+#include "ft_printf.h"
 #include "so_long.h"
 #include <stdlib.h>
 
